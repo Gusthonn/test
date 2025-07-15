@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+  <!-- Love Particles Background -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<style>
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* supaya di belakang semua elemen */
+  }
+</style>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      color: #333;
+      text-align: center;
+      padding: 30px;
+    }
+    h1, h2 {
+      font-family: 'Pacifico', cursive;
+      color: #d6336c;
+    }
+    button {
+      background-color: #ff69b4;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #e75480;
+    }
+    .hero {
+  margin-top: 80px;
+  background: #fff;           
+  padding: 30px;               
+  border-radius: 15px;         
+  max-width: 600px;              margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* ✅ Efek bayangan manis */
+}
+
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 200px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .message {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #fff0f5;
+  border-radius: 15px;
+  width: 90%;              /* ✅ hampir full layar (HP & desktop) */
+  max-width: 1000px;       /* ✅ biar di desktop gak terlalu panjang */
+  font-size: 18px;
+  line-height: 1.8;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  .surat-besar {
+  width: 100%;        /* ✅ full width */
+  max-width: none;    /* ✅ hilangkan batas maksimum */
+  border-radius: 0;   /* ✅ biar full tanpa sudut bulat */
+  margin: 20px 0;     /* ✅ kasih jarak atas-bawah */
+  padding: 20px 0;    /* ✅ biar lega */
+}
+
+.surat-besar {
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+    }
+    .photobooth-besar {
+  width: 95%;
+  max-width: 800px;
+  margin: 30px auto;
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.photobooth-besar video,
+.photobooth-besar img {
+  display: block;
+  width: 170px;
+  margin: 10px auto; /* ✅ Tengah & ada jarak */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.photobooth-besar {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  background: rgba(255, 240, 245, 0.6); /* ✅ Putihnya transparan */
+  border-radius: 12px;
+}
+
+#particles-photobooth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* ✅ Naik ke atas background putih */
+}
+
+.photobooth-besar h2,
+.photobooth-besar video,
+.photobooth-besar img {
+  position: relative;
+  z-index: 2; /* ✅ Konten paling atas */
+}
+.wishes-section {
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 30px auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.wishes-section h2 {
+  color: #d6336c;
+  font-family: 'Pacifico', cursive;
+  margin-bottom: 10px;
+}
+
+.wishes-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.wishes-list li {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+  </style>
+</head>
+ <body>  
+  <section class="hero">
+    <h1>🎉 Happy Birthday, Sayang 🎉</h1>
+    <p>CLICK DISINII SAYANG UNTUK LANJUTT</p>
+    <button onclick="startSurprise()">Start</button>
+  </section>
+  <div class="message">
+    <h2>⏳ Countdown to Your Birthday!</h2>
+    <p id="countdown" style="font-size:24px; font-weight:bold;">Loading...</p>
+  </div>
+  
+  <section id="main-content" style="display:none;">
+    <div class="gallery">
+      <h2>💑 Our Moments</h2>
+      <img src="Image/test.jpg" alt="photo 1" style="width: 300px; height: auto;"/>
+        <img src="Image/test1.jpeg" alt="photo 2 " style="width: 300px; height: auto;"/>
+            <img src="Image/test2.jpeg" alt="photo 3" style="width: 300px; height: auto;"/>
+    </div>
+
+    <div class="message">
+      <h2>💌 A Letter for You</h2>
+      <p>
+        Untuk Ndutt sayangggg, happyyyy birthdaayyyyyyy ndutttttt i loveeeee youuuuuu moreeee thannn anythingggg, thank youu for everything u havee done for me, im wishingg u nothing but happiness. Sorry if i cant do things to make u happier maafff kaloo aku ngeselinn atau suka gabisa ngikutinn kamu ngegym bareng atau lari bareng hehe 😔. Tapii akuu selalu berusahaa buatt kamuu sayangg apapunn aku lakukann untuk kamuuuu, YOU'RE THE BEST GIRL AND YOU'RE MY EVERYTHING  ❤️
+      </p>
+    </div>
+
+    <div class="gallery">
+      <h2>📸 Our Selfie Moments</h2>
+      <img src="Image/selfie.jpeg" alt="moment 1" />
+      <img src="Image/selfie3.jpeg" alt="moment 2" />
+      <img src="Image/selfie4.jpeg" alt="moment 3" />
+    </div>
+
+    <div class="photobooth-besar">
+        <div id="particles-photobooth"></div>
+        <h2> Our Photobooth Moments</h2>
+      
+        <video controls autoplay loop muted>
+          <source src="Image/photobooth.mp4">
+        </video>
+      
+        <img src="Image/photobooth2.jpeg">
+      
+        <video controls autoplay loop muted>
+          <source src="Image/photobooth3.mp4">
+        </video>
+      </div>
+      
+      <div class="wishes-section">
+        <h2>🌸 My Wishes for You 🌸</h2>
+        <p>Semoga ditahun ini kamu semua yang kamu pengen capai ke capai semuaa yaa sayangg seperti magang n nanti pre thessis dimudahkan dan yg penting sehat panjang umurr yahh SAMA INI semogaa rasa sayang kamu ke akuu makin nambahh kaya naik terus andd huhuuu sama aku terus yah tahun ke tahun selalu bersama aamiinn ❤️</p>
+      
+        <ul class="wishes-list">
+          <li>✨ Semoga setiap hari kamu makin baik sama akuu makin peduli</li>
+          <li>✨ Semoga makin semangat olahraganyaa YG PENTING JGN ADA OTOT!!</li>
+          <li>✨ Semoga kamuu gaa macem macem yah di umur kamu yg 21</li>
+          <li>✨ Semoga di tahun ini kamuu jangann beteinn malesin aku teruss yahhh</li>
+          <li>✨ Semoga ndutt tauu apa yg aku rasainn kalo km berbuat sesuatu atau inget aku kl mau melakukann sesuatu</li>
+          <li>✨ Ndut kan udahh bolehh nih mainn, ndutt tp jangann keasikann yaa akuu gamauu, mainn yaa mainnn tp jgnn sampe keasikann yaa</li>
+          <li>✨ Semoga makin sabar sama akuu yah sayangg</li>
+          <li>✨ Semoga semakin hari kamu semakin bahagiaa yahhh</li>
+          <li>✨ Semoga makin cantikk setiap harinya</li>
+          <li>✨ Semoga career kamu makin meningkat naik teruss di mudahkan</li>
+          <li>✨ Semoga makin banyak rezeki nyaa buat beli barang2 yg lagii hypee hihiii</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+          <li>✨ Semoga makin bertambah sayangggg sm aku</li>
+        </ul>
+      </div>
+      
+      
+<div class="message surat-besar">
+    <h2>💌 Bukaa Donggg</h2>
+    <button onclick="tampilkanSurat()">Open</button>
+    <p id="surat" style="display:none; font-style:italic; margin-top:10px;"></p>
+  </div>
+  
+    </div>
+      
+  </section>
+  <div class="message">
+    <div class="message">
+        <h2> Mau hadiah yang mana, sayang?</h2>
+        <p>Pilih salah satu yaa, soalnya akukannn belum kerjaa hihiii</p>
+      
+        <select id="giftSelect" onchange="tampilkanGambar()" style="padding: 10px; border-radius: 10px;">
+          <option value="">-- Pilih ndutt --</option>
+          <option value="alo">Kacamata ALO </option>
+          <option value="adidas">Adidas Boston </option>
+          <option value="jellycat">Bartholomew Bathrobe </option>
+        </select>
+      
+        <div id="hasilGambar" style="margin-top: 20px;"></div>
+      </div>
+     
+        <div id="particles-js"></div>
+  <audio id="birthdayAudio" src="assets/music/song.mp3"></audio>
+  <script>
+    function tampilkanSurat() {
+  const surat = document.getElementById("surat");
+  surat.style.display = "block";
+  const text = "Hiii sayangg hehhehe, im grateful that i still with you and i hope i will be for many more years to come, i hope you know that you are loved. you are appreciated. you are worthy, im always here for you no matter what happens if you think no one is around of you, always remember that im here, ALWAYS. i genuinely thanking god for your existence hihii ❤️, once agaainnnn HAPPY BIRTHDAAAYYYYY, iloveyouuuuuu sayanggg heheheheh maaffff yaaa kaloo aku masihh kurangggg ❤️";
+  surat.innerHTML = "";
+  let i = 0;
+  const interval = setInterval(() => {
+    surat.innerHTML += text.charAt(i);
+    i++;
+    if (i > text.length) clearInterval(interval);
+  }, 50);
+}
+
+    function tampilkanGambar() {
+  const pilihan = document.getElementById('giftSelect').value;
+  const hasil = document.getElementById('hasilGambar');
+
+  if (pilihan === "alo") {
+    hasil.innerHTML = `
+      <p>WOW NDUTT MEMILIH KACAMATAA NDUTT PENGEN BERGAYAA KAHH</p>
+      <img src="Image/alo glass.jpg" alt="Kacamata ALO" style="width: 300px; height: auto;"  />
+    `;
+  } else if (pilihan === "adidas") {
+    hasil.innerHTML = `
+      <p>WOWWW SEPERTINYA KAMU AKAN FOKUS LARI YAAA, AKU SUPPORT YA BELIKAN NDUT SEPATU LARI</p>
+      <img src="Image/boston.jpg" alt="Adidas Boston" style="width: 300px; height: auto;"  />
+    `;
+  } 
+  else if (pilihan === "jellycat") {
+    hasil.innerHTML = `
+      <p>WADUHHH KM PILIH JELLYCAT KAHHH KM MAUU MENUNGGUU LAMAA GAK APAAA??</p>
+      <img src="Image/jellycat.jpeg" alt="Jellycat" style="width: 300px; height: auto;"  />
+    `;
+  }
+  else {
+    hasil.innerHTML = "";
+  }
+}
+
+
+    function startSurprise() {
+      document.querySelector('.hero').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+      confetti({
+        particleCount: 150,
+        spread: 90,
+        origin: { y: 0.6 }
+      });
+    }
+
+    function playMusic() {
+      document.getElementById('birthdayAudio').play();
+    }
+  </script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 50 },
+        shape: {
+          type: "image",
+          image: {
+            src: "https://cdn-icons-png.flaticon.com/512/833/833472.png", 
+            width: 20, 
+            height: 20
+          }
+        },
+        size: { value: 8 },
+        move: { speed: 2 }
+      }
+    });
+    
+  </script> 
+  <script>
+    // Set waktu target (jam 00:00 hari ini atau besok)
+    const targetDate = new Date();
+    targetDate.setHours(24, 0, 0, 0); // jam 00:00 hari berikutnya
+  
+    const countdownEl = document.getElementById("countdown");
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+  
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+      countdownEl.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+  
+      if (distance < 0) {
+        clearInterval(timer);
+        countdownEl.innerHTML = "🎉 Happy Birthday Ndutkuuu Sayanggggg! 🎉";
+        // Efek confetti & balon
+        BirthdaySurprise();
+      }
+    }, 1000);
+  
+    // Efek balon terbang
+    function balonTerbang() {
+      for (let i = 0; i < 15; i++) {
+        const balloon = document.createElement("div");
+        balloon.innerHTML = "🎈";
+        balloon.style.position = "fixed";
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.bottom = "-50px";
+        balloon.style.fontSize = "40px";
+        document.body.appendChild(balloon);
+  
+        let pos = -50;
+        const naik = setInterval(() => {
+          pos += 2;
+          balloon.style.bottom = pos + "px";
+          if (pos > window.innerHeight) {
+            clearInterval(naik);
+            balloon.remove();
+          }
+        }, 30);
+      }
+    }
+  
+    // Fungsi confetti + balon
+    function BirthdaySurprise() {
+      confetti({
+        particleCount: 200,
+        spread: 120,
+        origin: { y: 0.6 }
+      });
+      balonTerbang();
+    }
+    
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    particlesJS("particles-photobooth", {
+      particles: {
+        number: { value: 30 },
+        shape: {
+          type: "image",
+          image: {
+            src: "https://cdn-icons-png.flaticon.com/512/833/833472.png",
+            width: 20,
+            height: 20
+          }
+        },
+        size: { value: 8 },
+        move: { speed: 1 }
+      }
+    });
+  });
+  </script>
+      
+</body>
+</html>
